@@ -15,7 +15,7 @@ import javax.ws.rs.core.Response;
 import beans.User;
 import dao.UserDAO;
 
-@Path("")
+@Path("/users")
 public class UserService {
 	
 	@Context
@@ -25,7 +25,6 @@ public class UserService {
 	
 	@PostConstruct
 	public void init(){
-		System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
 		if (ctx.getAttribute("userDAO") == null){
 		    String contextPath = ctx.getRealPath("");
 		    ctx.setAttribute("userDAO", new UserDAO(contextPath));
@@ -39,10 +38,23 @@ public class UserService {
 	public Response login(User user, @Context HttpServletRequest request) {
 		UserDAO userDao = (UserDAO) ctx.getAttribute("userDAO");
 		User loggedUser = userDao.find(user.getUsername(), user.getPassword());
-		if (loggedUser != null) {
+		if (loggedUser == null) {
 			return Response.status(400).entity("Invalid username and/or password").build();
 		}
 		request.getSession().setAttribute("user", loggedUser);
+		return Response.status(200).build();
+	}
+	
+	@POST
+	@Path("/signup")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response signup(User user, @Context HttpServletRequest request) {
+		UserDAO userDao = (UserDAO) ctx.getAttribute("userDAO");
+		if ( !userDao.add(user) ) {
+			return Response.status(400).entity("Username already exists!").build();
+		}
+		
 		return Response.status(200).build();
 	}
 	

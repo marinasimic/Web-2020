@@ -9,6 +9,8 @@ import java.util.Map;
 import java.util.StringTokenizer;
 
 import beans.User;
+import enums.Gender;
+import enums.Role;
 
 public class UserDAO {
 	private Map<String, User> users = new HashMap<>();
@@ -28,6 +30,16 @@ public class UserDAO {
 			return null;
 		}
 		return user;
+	}
+	
+	public boolean add(User user) {
+		if (users.containsKey(user.getUsername())) {
+			return false;
+		}
+		
+		users.put(user.getUsername(), user);
+		
+		return true;
 	}
 	
 	public Collection<User> findAll() {

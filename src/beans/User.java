@@ -14,9 +14,7 @@ public class User {
 	private List<Apartment> rentedApartments;
 	private List<Reservation> reservations;	
 	
-	public User(){
-		super();
-	}
+	public User(){}
 	
 	public User(String username, String password, String firstName, String lastName, Gender gender, Role role) {
 		super();
@@ -26,6 +24,28 @@ public class User {
 		this.lastName = lastName;
 		this.gender = gender;
 		this.role = role;
+	}
+	
+	public User(String username, String password, String firstName, String lastName, String gender) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.firstName = firstName;
+		this.lastName = lastName;
+
+		switch(gender){
+		case "Male":
+			this.gender = Gender.MALE;
+			break;
+		case "Female":
+			this.gender = Gender.FEMALE;
+			break;
+		default:
+			this.gender = Gender.UNKNOWN;
+			break;
+		}
+		
+		this.role = Role.GUEST;
 	}
 	
 	public User(String username, String password, String firstName, String lastName, String gender, String role) {

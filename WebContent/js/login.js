@@ -1,25 +1,29 @@
 $(document).ready(function(){
-    $('#formaZaPrijavu').submit(function(event){
+    $('#loginform').submit(function(event){
         event.preventDefault();
 
         var username=$('#username').val();
         var password=$('#password').val();
 
-        if(username === "" || password === ""){
-            alert("Nijedno polje ne sme ostati prazno!")
+        if(username === ""){
+            alert("You have to enter your username!")
+            return
+        }
+        if(password === ""){
+            alert("You have to enter your password!")
             return
         }
 
         $.post({
-            url: 'api/korisnici/login',
+            url: 'rest/users/login',
             data: JSON.stringify({username, password}),
             contentType: 'application/json',
             success: function(data) {
                 localStorage.setItem('jwt', JSON.stringify(data.accessToken))
-                window.location='pocetna.html'
+                window.location='mainPage.html'
             },
             error: function() {
-                alert("Neuspešna prijava.")
+                alert("Login failed.")
             }
         });
 
