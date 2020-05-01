@@ -373,6 +373,7 @@ input {
 
 .input--style-4 {
   line-height: 50px;
+  width: 250px;
   background: #fafafa;
   -webkit-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
   -moz-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
@@ -718,4 +719,13 @@ input {
     font-size: 35px;
     margin-top: auto;
     text-align: center;
+}
+
+.min-height-signup {
+	min-height: 760px;
+	min-width: 700px;
+}
+
+.error-font {
+	font-size: 13px;
 }

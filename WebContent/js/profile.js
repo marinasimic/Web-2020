@@ -224,6 +224,8 @@ function changePasswordFieldsValidation() {
 	
 	return true;
 }
+
+
 function saveChanges(e) {
     e.preventDefault();
     var firstName = $("#firstNameEdit").val();
