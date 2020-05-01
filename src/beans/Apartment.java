@@ -31,7 +31,7 @@ public class Apartment {
 	}
 
 	public Apartment(ApartmentType type, int roomNumber, int guestNumber, Location location, User host,
-			int pricePerNight, boolean active) {
+	        int pricePerNight, boolean active) {
 		super();
 		this.type = type;
 		this.roomNumber = roomNumber;
@@ -43,9 +43,9 @@ public class Apartment {
 	}
 
 	public Apartment(ApartmentType type, int roomNumber, int guestNumber, Location location, List<Date> bookableDates,
-			List<Date> bookedDates, User host, List<Comment> comments, List<Image> images, int pricePerNight,
-			LocalTime checkInTime, LocalTime checkOutTime, boolean active, List<Amenity> amenities,
-			List<Reservation> reservations) {
+	        List<Date> bookedDates, User host, List<Comment> comments, List<Image> images, int pricePerNight,
+	        LocalTime checkInTime, LocalTime checkOutTime, boolean active, List<Amenity> amenities,
+	        List<Reservation> reservations) {
 		super();
 		this.type = type;
 		this.roomNumber = roomNumber;

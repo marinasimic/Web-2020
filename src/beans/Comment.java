@@ -5,7 +5,7 @@ public class Comment {
 	private Apartment apartment;
 	private String message;
 	private int rating;
-	
+
 	public Comment() {
 		super();
 	}

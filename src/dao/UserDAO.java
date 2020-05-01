@@ -18,13 +18,14 @@ import enums.Role;
 
 public class UserDAO {
 	private Map<String, User> users = new HashMap<>();
-	
-	public UserDAO() {}
-	
+
+	public UserDAO() {
+	}
+
 	public UserDAO(String contextPath) {
 		loadUsers(contextPath);
 	}
-	
+
 	public User find(String username, String password) {
 		if (!users.containsKey(username)) {
 			return null;
@@ -35,21 +36,21 @@ public class UserDAO {
 		}
 		return user;
 	}
-	
+
 	public boolean add(User user) {
 		if (users.containsKey(user.getUsername())) {
 			return false;
 		}
-		
+
 		users.put(user.getUsername(), user);
 		return true;
 	}
-	
+
 	public void save(User user) {
 		users.remove(user.getUsername());
 		users.put(user.getUsername(), user);
 	}
-	
+
 	public Collection<User> findAll() {
 		return users.values();
 	}
@@ -82,58 +83,55 @@ public class UserDAO {
 			if (in != null) {
 				try {
 					in.close();
+				} catch (Exception e) {
 				}
-				catch (Exception e) { }
 			}
 		}
 	}
-	
+
 	public boolean saveUsers(String contextPath) {
 		try {
+			File f = new File(contextPath + "users.txt");
+			f.delete();
 			PrintWriter out = new PrintWriter(contextPath + "users.txt");
 
 			for (User u : users.values()) {
 				String s = u.getFirstName();
-				s += ",";
+				s += ";";
 				s += u.getLastName();
-				s += ",";
+				s += ";";
 				s += u.getUsername();
-				s += ",";
+				s += ";";
 				s += u.getPassword();
-				s += ",";
-				
+				s += ";";
+
 				if (u.getGender() == Gender.MALE) {
 					s += "Male";
-				}
-				else if (u.getGender() == Gender.FEMALE) {
+				} else if (u.getGender() == Gender.FEMALE) {
 					s += "Female";
-				}
-				else {
+				} else {
 					s += "Unknown";
 				}
-				s += ",";
-				
+				s += ";";
+
 				if (u.getRole() == Role.ADMINISTRATOR) {
 					s += "Administrator";
-				}
-				else if (u.getRole() == Role.HOST) {
+				} else if (u.getRole() == Role.HOST) {
 					s += "Host";
-				}
-				else {
+				} else {
 					s += "Guest";
 				}
-				
+
 				out.println(s);
 			}
-			
+
 			out.close();
-			
+
 			return true;
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
 		}
 	}
-	
+
 }

@@ -11,13 +11,13 @@ public class Reservation {
 	private Double price;
 	private String message;
 	private ReservationStatus status;
-	
+
 	public Reservation() {
 		super();
 	}
 
 	public Reservation(Apartment apartment, Date startDate, int nights, Double price, String message,
-			ReservationStatus status) {
+	        ReservationStatus status) {
 		super();
 		this.apartment = apartment;
 		this.startDate = startDate;
