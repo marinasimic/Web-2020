@@ -55,6 +55,10 @@ public class UserService {
 			return Response.status(400).entity("Username already exists!").build();
 		}
 		
+		if ( !userDao.saveUsers(ctx.getRealPath(""))) {
+			return Response.status(400).entity("User wasn't saved!").build();
+		}
+		
 		return Response.status(200).build();
 	}
 	
@@ -72,5 +76,23 @@ public class UserService {
 	@Produces(MediaType.APPLICATION_JSON)
 	public User login(@Context HttpServletRequest request) {
 		return (User) request.getSession().getAttribute("user");
+	}
+	
+	@POST
+	@Path("/changePassword")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response changePassword(String password, @Context HttpServletRequest request) {
+		User u = (User) request.getSession().getAttribute("user");
+		u.setPassword(password);
+		
+		UserDAO userDao = (UserDAO)ctx.getAttribute("userDAO");
+		userDao.save(u);
+		
+		if ( !userDao.saveUsers(ctx.getRealPath(""))) {
+			return Response.status(400).entity("Password wasn't saved!").build();
+		}
+		
+		return Response.status(200).build();
 	}
 }

@@ -27,17 +27,29 @@
 </head>
 
 <body>
-<div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
-    <div class="wrapper wrapper--w680">
+<div class="page-wrapper bg-gra-02 p-t-20 p-b-100 font-poppins">
+    <div class="wrapper">
+        <div class="card card-4" style="max-width: 1000px; margin: 0 auto">
+            <div class="navbar" style="align-items: center" id="navbar">
+                <a href="guestProfile.html" class="btn btn--radius-2 btn--blue">Profile</a>
+                <a href="guestMainPage.html" class="btn btn--radius-2 btn--blue">Apartments</a>
+                <a href="guestReservations.html" class="btn btn--radius-2 btn--blue">Reservations</a>
+                <a href="login.html" class="btn btn--radius-2 btn--blue">Logout</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="main-wrapper" style="margin: 0 auto" class="wrapper wrapper--w780 p-t-20">
         <div class="card card-4">
             <div class="card-body">
-                <h2 class="title" id="title"></h2>
-                <form id="loginform">
-                </form>
+                <div id="content"  style="overflow:auto; height:400px;">
+                    <p>Rezervacije</p>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
 
 <!-- Jquery JS-->
 <script src="vendor/jquery/jquery.min.js"></script>
@@ -50,4 +62,3 @@
 </body>
 
 </html>
-<!-- end document-->

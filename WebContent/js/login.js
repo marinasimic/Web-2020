@@ -20,7 +20,7 @@ $(document).ready(function(){
             contentType: 'application/json',
             success: function(data) {
                 localStorage.setItem('jwt', JSON.stringify(data.accessToken))
-                window.location='mainPage.html'
+                window.location='guestMainPage.html'
             },
             error: function() {
                 alert("Login failed.")

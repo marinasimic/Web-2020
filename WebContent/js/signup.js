@@ -12,7 +12,7 @@ $(document).ready(function(){
         var lastName = $('#lastName').val();
         var gender = $('#gender').val();
         
-        if (firstName === "" ) {
+        if (firstName === "" || lastName ==="" || username === "" || password === "" || passwordConfirm === "" ) {
             alert("All fields must be filled!")
             return
         }
@@ -48,7 +48,7 @@ $(document).ready(function(){
             data: JSON.stringify({username, password, firstName, lastName, gender}),
             contentType: 'application/json',
             success: function() {
-                window.location='login.html';
+                window.location='guestMainPage.html';
             },
             error: function() {
                 alert("Username already exists!")

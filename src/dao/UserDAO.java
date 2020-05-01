@@ -1,8 +1,12 @@
 package dao;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -38,8 +42,12 @@ public class UserDAO {
 		}
 		
 		users.put(user.getUsername(), user);
-		
 		return true;
+	}
+	
+	public void save(User user) {
+		users.remove(user.getUsername());
+		users.put(user.getUsername(), user);
 	}
 	
 	public Collection<User> findAll() {
@@ -77,6 +85,54 @@ public class UserDAO {
 				}
 				catch (Exception e) { }
 			}
+		}
+	}
+	
+	public boolean saveUsers(String contextPath) {
+		try {
+			PrintWriter out = new PrintWriter(contextPath + "users.txt");
+
+			for (User u : users.values()) {
+				String s = u.getFirstName();
+				s += ",";
+				s += u.getLastName();
+				s += ",";
+				s += u.getUsername();
+				s += ",";
+				s += u.getPassword();
+				s += ",";
+				
+				if (u.getGender() == Gender.MALE) {
+					s += "Male";
+				}
+				else if (u.getGender() == Gender.FEMALE) {
+					s += "Female";
+				}
+				else {
+					s += "Unknown";
+				}
+				s += ",";
+				
+				if (u.getRole() == Role.ADMINISTRATOR) {
+					s += "Administrator";
+				}
+				else if (u.getRole() == Role.HOST) {
+					s += "Host";
+				}
+				else {
+					s += "Guest";
+				}
+				
+				out.println(s);
+			}
+			
+			out.close();
+			
+			return true;
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
 		}
 	}
 	

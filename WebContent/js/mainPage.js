@@ -12,13 +12,6 @@ $(document).ready(function(){
         success: function (user){
             currentUser = user;
             localStorage.setItem('currentUser', JSON.stringify(currentUser));
-            console.log("LOCAL STORAGE: " + localStorage.getItem('currentUser'));
-
-            var welcomeMessage = document.createTextNode("Welcome " + currentUser.firstName + " " + currentUser.lastName + "!");
-            var span = document.createElement('span');
-            span.style.fontSize = "20px";
-            span.appendChild(welcomeMessage);
-            document.getElementById("title").appendChild(span);
          }
     });
 });

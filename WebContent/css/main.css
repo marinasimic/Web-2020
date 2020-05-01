@@ -35,6 +35,7 @@
   width: -webkit-calc((100% - 30px) / 2);
   width: -moz-calc((100% - 30px) / 2);
   width: calc((100% - 30px) / 2);
+  margin: 0 auto;
 }
 
 @media (max-width: 767px) {
@@ -176,19 +177,19 @@ h6 {
 }
 
 .bg-gra-01 {
-  background: -webkit-gradient(linear, left bottom, left top, from(#c2fbe0), to(#8cbed1));
-  background: -webkit-linear-gradient(bottom, #c2fbe0 0%, #8cbed1 100%);
-  background: -moz-linear-gradient(bottom, #c2fbe0 0%, #8cbed1 100%);
-  background: -o-linear-gradient(bottom, #c2fbe0 0%, #8cbed1 100%);
-  background: linear-gradient(to top, #c2fbe0 0%, #8cbed1 100%);
+  background: -webkit-gradient(linear, left bottom, left top, from(#4E0250), to(#CC8DCF));
+  background: -webkit-linear-gradient(bottom, #4E0250 0%, #CC8DCF 100%);
+  background: -moz-linear-gradient(bottom, #4E0250 0%, #CC8DCF 100%);
+  background: -o-linear-gradient(bottom, #4E0250 0%, #CC8DCF 100%);
+  background: linear-gradient(to top, #4E0250 0%, #CC8DCF 100%);
 }
 
 .bg-gra-02 {
-  background: -webkit-gradient(linear, left bottom, right top, from(#c2fbe0), to(#8cbed1));
-  background: -webkit-linear-gradient(bottom left, #c2fbe0 0%, #8cbed1 100%);
-  background: -moz-linear-gradient(bottom left, #c2fbe0 0%, #8cbed1 100%);
-  background: -o-linear-gradient(bottom left, #c2fbe0 0%, #8cbed1 100%);
-  background: linear-gradient(to top right, #c2fbe0 0%, #8cbed1 100%);
+  background: -webkit-gradient(linear, left bottom, right top, from(#4E0250), to(#CC8DCF));
+  background: -webkit-linear-gradient(bottom left, #4E0250 0%, #CC8DCF 100%);
+  background: -moz-linear-gradient(bottom left, #4E0250 0%, #CC8DCF 100%);
+  background: -o-linear-gradient(bottom left, #4E0250 0%, #CC8DCF 100%);
+  background: linear-gradient(to top right, #4E0250 0%, #CC8DCF 100%);
 }
 
 /* ==========================================================================
@@ -268,6 +269,7 @@ h6 {
   font-size: 18px;
   color: #fff;
   font-family: "Poppins", "Arial", "Helvetica Neue", sans-serif;
+  text-decoration: none;
 }
 
 .btn--radius {
@@ -297,11 +299,11 @@ h6 {
 }
 
 .btn--blue {
-  background: #4272d7;
+  background: #834685;
 }
 
 .btn--blue:hover {
-  background: #3868cd;
+  background: #712F73   ;
 }
 
 /* ==========================================================================
@@ -385,6 +387,25 @@ input {
   -o-transition: all 0.4s ease;
   -moz-transition: all 0.4s ease;
   transition: all 0.4s ease;
+}
+
+.input--style-6 {
+    line-height: 50px;
+    width: 300px;
+    background: #ffffff;
+    -webkit-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+    -moz-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+    box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding: 0 20px;
+    font-size: 16px;
+    color: #333;
+    -webkit-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    transition: all 0.4s ease;
 }
 
 .input--style-4::-webkit-input-placeholder {
@@ -494,6 +515,16 @@ input {
 .input-group {
   position: relative;
   margin-bottom: 22px;
+}
+
+.input-group-top {
+  position: relative;
+  margin-bottom: 7px;
+}
+
+.input-group-bottom {
+  position: relative;
+  margin-bottom: 50px;
 }
 
 .input-group-icon {
@@ -643,6 +674,7 @@ input {
 .card-4 .card-body {
   padding: 57px 65px;
   padding-bottom: 65px;
+  height: 600px;
 }
 
 @media (max-width: 767px) {
@@ -675,4 +707,15 @@ input {
 /* Show the tooltip text when you mouse over the tooltip container */
 .tooltip:hover .tooltiptext {
   visibility: visible;
+}
+
+.validate_label {
+    font-size: 12px;
+}
+
+.navbar {
+    min-height: 70px;
+    font-size: 35px;
+    margin-top: auto;
+    text-align: center;
 }
