@@ -62,6 +62,7 @@ public class UserService {
 			return Response.status(400).entity("User wasn't saved!").build();
 		}
 
+		request.getSession().setAttribute("user", user);
 		return Response.status(200).build();
 	}
 
