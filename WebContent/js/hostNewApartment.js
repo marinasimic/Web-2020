@@ -1,6 +1,8 @@
 $(document).ready(function () {
     var currentUser = JSON.parse(localStorage.getItem('user'));
 
+    fillAmenities();
+
     $("#guestNo").keyup(guestNoValidate);
     $("#roomNo").keyup(roomNoValidate);
     $("#street").keyup(streetValidate);
@@ -40,7 +42,7 @@ $(document).ready(function () {
 
         $.post({
             url: 'rest/apartments/add',
-            data: JSON.stringify({ apartmentType, guestNo, roomNo, street, streetNo, place, postalCode, longitude, latitude }),
+            data: JSON.stringify({ apartmentType, guestNo, roomNo, street, streetNo, place, postalCode, longitude, latitude}),
             contentType: 'application/json',
             success: function (data) {
                 localStorage.setItem('jwt', JSON.stringify(data.accessToken));
@@ -235,4 +237,19 @@ function longitudeValidate() {
     }
 
     return true;
+}
+
+function fillAmenities() {
+    $.get({
+        url: 'rest/amenities/getAll',
+        contentType: 'application/json',
+        success: function (amenities) {
+            for (let amenity of amenities) {
+                var option = document.createElement('option');
+                option.value = amenity.id;
+                option.innerHTML = amenity.name;
+                document.getElementById("amenities").appendChild(option);
+            }
+        }
+    });
 }

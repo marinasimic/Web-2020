@@ -44,7 +44,7 @@
 
         <div id="main-wrapper" style="margin: 0 auto" class="wrapper wrapper--w960 p-t-20">
             <div class="card card-4">
-                <div class="card-body" style="min-height: 1000px;">
+                <div class="card-body" style="min-height: 1500px;">
                     <h2 class="title">New apartment</h2>
                     <div id="content">
                         <form id="saveApartment">
@@ -164,6 +164,58 @@
                                         mandatory!</label>
                                 </var>
                             </var>
+                            <div class="row row-space">
+                                <div class="col-2">
+                                    <div class="input-group-top">
+                                        <div class="label">Check in</div>
+                                        <input class="input--style-4" type="time" value="14:00" name="checkin"
+                                            id="checkin">
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="input-group-top">
+                                        <div class="label">Check out</div>
+                                        <input class="input--style-4" type="time" value="10:00" name="checkout"
+                                            id="checkout">
+                                    </div>
+                                </div>
+                            </div>
+                            <var class="row wrapper--w960">
+                                <var class="col-2 input-group">
+                                    <label style="color: red; visibility: hidden" id="checkinCheck">This
+                                        field is mandatory!</label>
+                                </var>
+
+                                <var class="col-2 input-group">
+                                    <label style="color: red; visibility: hidden" id="checkoutCheck">This field is
+                                        mandatory!</label>
+                                </var>
+                            </var>
+                            <div class="row row-space">
+                                <div class="col-2">
+                                    <div class="input-group-top">
+                                        <div class="label">Price per night</div>
+                                        <input class="input--style-4" type="number" name="price" id="checkin">
+                                    </div>
+                                </div>
+                            </div>
+                            <var class="row wrapper--w960">
+                                <var class="col-2 input-group">
+                                    <label style="color: red; visibility: hidden" id="priceCheck">This
+                                        field is mandatory!</label>
+                                </var>
+                            </var>
+                            <div class="row row-space">
+                                <div class="col-2">
+                                    <div class="input-group">
+                                        <div class="label">Amenities</div>
+                                        <div class="label" style="font-size: smaller;">(Hold ctrl to select multiple
+                                            options)</div>
+                                        <select class="input--style-4" style="height: 200px;" name="amenities"
+                                            id="amenities" multiple></select>
+                                    </div>
+                                </div>
+                            </div>
 
                             <div class="p-t-15" style="align-self: center; column-span: 2;">
                                 <button class="btn btn--radius-2 btn--blue" type="submit">Add
